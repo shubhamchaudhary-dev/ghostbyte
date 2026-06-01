@@ -6,7 +6,36 @@
 
 **Hackathon:** Hackathon Raptors
 
-**Language:** Rust 🦀
+---
+
+## 🎯 Assigned Constraints
+
+| Constraint | Assignment |
+|------------|------------|
+| D1 | Short-Name Ninja |
+| D2 | Detailed Creator (300 LOC Budget) |
+| D3 | System Utilities |
+| D4 | Rust |
+
+### How GhostByte Satisfies Them
+
+✅ **Short-Name Ninja**
+
+All project-defined identifiers were limited to three characters or fewer.
+
+Examples:
+
+```text
+Cmd
+Ftr
+cal
+prs
+siz
+off
+nln
+sts
+hos
+fil
 
 **Bonus Challenges Completed:** ✅ Rosetta Stone (+5) | ✅ Cross-Constraint Combo (+5) | ✅ Language Love Letter (+3)
 
