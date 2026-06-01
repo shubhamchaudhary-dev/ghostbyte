@@ -1,94 +1,120 @@
-````md
-# GhostByte
+# 👻 GhostByte
 
-> Binary Intelligence Terminal for Append-Only Payload Engineering
+### Binary Intelligence Terminal for Deterministic Payload Engineering
 
-GhostByte is a compact Rust-based system utility that implants, inspects, and extracts payloads from existing files using a deterministic append-only binary protocol.
+**Team Name:** Krishnap
 
-Rather than modifying original file contents, GhostByte appends structured metadata and payload information to the end of a host binary, preserving the original file while enabling deterministic reconstruction of embedded content.
+**Hackathon:** Hackathon Raptors
 
-The project combines binary engineering, protocol design, integrity verification, terminal visualization, and constraint-driven architecture within an extremely small codebase.
+**Language:** Rust 🦀
 
----
-
-# Demo
-
-```text
-██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗
-██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝
-██║  ███╗███████║██║   ██║███████╗   ██║
-██║   ██║██╔══██║██║   ██║╚════██║   ██║
-╚██████╔╝██║  ██║╚██████╔╝███████║   ██║
- ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝
-
-        Binary Intelligence Terminal
-```
-
-```text
-╔══════════════════════════════════════════════╗
-║                  GHOSTBYTE                   ║
-║         Binary Intelligence Terminal         ║
-╚══════════════════════════════════════════════╝
-
-┌──────── SYSTEM STATUS ─────────┐
-│ HOST   : demo.pdf             │
-│ STATE  : VERIFIED             │
-└────────────────────────────────┘
-
-┌──────── PAYLOAD INFO ──────────┐
-│ FILE   : secret.txt           │
-│ SIZE   : 10 bytes             │
-│ OFF    : 1412269              │
-│ TEXT   : TOP SECRET           │
-└────────────────────────────────┘
-
-┌──────── BINARY MAP ────────────┐
-│ ███████████████████ HOST       │
-│ ██ PAYLOAD                     │
-│ █ FOOTER                       │
-│ ■ MAGIC                        │
-└────────────────────────────────┘
-```
+**Bonus Challenges Completed:** ✅ Rosetta Stone (+5) | ✅ Cross-Constraint Combo (+5) | ✅ Language Love Letter (+3)
 
 ---
 
-# What GhostByte Does
+# 🚀 Overview
 
-GhostByte provides three core operations:
+GhostByte is a compact systems utility that implants, inspects, and extracts payloads from existing files using a deterministic append-only binary protocol.
 
-## Implant
+Unlike conventional file modification tools, GhostByte never alters the original host bytes. Instead, it appends structured metadata and payload information to the end of a binary, enabling deterministic reconstruction through reverse footer traversal.
 
-Embed a payload into an existing host file.
+GhostByte transforms binary files into self-describing containers while preserving original functionality.
+
+---
+
+# 🎥 Demo Video
+
+**Watch the complete project demonstration here:**
+
+# 🎥 Demo Video
+
+<p align="center">
+  <a href="https://youtu.be/FBG8uRyKKEA">
+   <img alt="GhostByte Demo Video" width="900" src="https://github.com/user-attachments/assets/c83cdb4f-0b9f-4d6f-bca0-308eaa8aca8f" />
+  </a>
+</p>
+
+<p align="center">
+  <b>▶ Click the thumbnail above to watch the full demo</b>
+</p>
+
+The demo covers:
+
+* Project architecture walkthrough
+* Rust implementation
+* Payload implantation
+* Binary inspection dashboard
+* Payload extraction
+* Python reference implementation
+* Bonus challenge showcase
+
+---
+
+# 🏆 Why GhostByte?
+
+Modern tooling often hides binary complexity behind frameworks and abstractions.
+
+GhostByte intentionally moves in the opposite direction.
+
+Every byte matters.
+
+Every offset is explicit.
+
+Every transformation is reversible.
+
+The project demonstrates how a deterministic binary protocol can be built under aggressive implementation constraints while remaining portable and transparent.
+
+---
+
+# ✨ Features
+
+### Implant Payloads
+
+Embed arbitrary files into host binaries.
 
 ```bash
-ghostbyte implant secret.txt demo.pdf
+cargo run --release -- implant secret.txt demo.pdf
 ```
 
 ---
 
-## Inspect
+### Binary Intelligence Dashboard
 
-Reverse-parse the file structure and visualize embedded content.
+Inspect embedded metadata through a custom terminal interface.
 
 ```bash
-ghostbyte inspect demo.pdf
+cargo run --release -- inspect demo.pdf
 ```
+
+Displays:
+
+* Host information
+* Integrity verification
+* Embedded payload details
+* Payload preview
+* Binary layout visualization
 
 ---
 
-## Extract
+### Extract Payloads
 
-Recover the embedded payload.
+Recover embedded files through deterministic reverse parsing.
 
 ```bash
-ghostbyte extract demo.pdf
+cargo run --release -- extract demo.pdf
 ```
 
 ---
 
-# Binary Layout
+### Portable Protocol
 
-GhostByte transforms a file into:
+A second implementation was developed in Python to demonstrate protocol portability.
+
+---
+
+# 📂 Binary Layout
+
+GhostByte transforms files into:
 
 ```text
 [ HOST ]
@@ -98,24 +124,24 @@ GhostByte transforms a file into:
 [ GHOSTBYTEv1 ]
 ```
 
-The original host file remains untouched.
+The original host bytes remain untouched.
 
-GhostByte only appends deterministic binary regions.
+GhostByte only appends deterministic regions.
 
 ---
 
-# Footer Protocol
+# 🔧 Footer Protocol
 
-GhostByte stores metadata in a deterministic footer.
+Every embedded payload contains deterministic metadata.
 
-| Field | Type |
-|---------|---------|
-| Version | u8 |
-| Payload Size | u64 |
-| Checksum | u32 |
-| Name Length | u16 |
-| Offset | u64 |
-| Flags | u8 |
+| Field        | Type |
+| ------------ | ---- |
+| Version      | u8   |
+| Payload Size | u64  |
+| Checksum     | u32  |
+| Name Length  | u16  |
+| Offset       | u64  |
+| Flags        | u8   |
 
 Footer Size:
 
@@ -125,9 +151,9 @@ Footer Size:
 
 ---
 
-# Parsing Strategy
+# 🧠 Parsing Strategy
 
-GhostByte performs reverse traversal from EOF.
+GhostByte performs deterministic reverse traversal.
 
 ```text
 EOF
@@ -158,7 +184,54 @@ No ambiguity.
 
 ---
 
-# Architecture
+# 🖥️ Demo Screenshots
+
+## Screenshot 1 — Payload Implantation
+
+Demonstrates append-only payload implantation into a host PDF while preserving original bytes.
+
+<img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/43c6b2e9-df29-4a90-8a26-9e996bc0dfaf" />
+
+
+---
+
+## Screenshot 2 — Binary Intelligence Dashboard
+
+GhostByte reverse-parses the binary structure and visualizes embedded metadata, integrity status, payload information, and protocol layout.
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6369e134-e038-4a72-aa2b-c027ea09fa29" />
+
+
+---
+
+## Screenshot 3 — Payload Extraction
+
+Deterministic reconstruction of the embedded payload using reverse footer traversal.
+
+<img width="1919" height="1073" alt="image" src="https://github.com/user-attachments/assets/19f92667-c33b-4255-85a8-78b0676736d7" />
+
+
+---
+
+## Screenshot 4 — Python Rosetta Stone Implementation
+
+Independent Python implementation of the GhostByte protocol demonstrating cross-language portability.
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/8f4dcf97-3e02-4dc8-803a-f1038d76d59c" />
+
+
+---
+
+## Screenshot 5 — Python Payload Recovery
+
+Payload extraction using the Python reference implementation.
+
+<img width="1919" height="301" alt="image" src="https://github.com/user-attachments/assets/3f289571-a40d-401c-878f-2e1b184fe35e" />
+
+
+---
+
+# 🏗️ Architecture
 
 ```text
              GhostByte
@@ -187,11 +260,11 @@ No ambiguity.
 
 ---
 
-# Constraint Compliance
+# ⚡ Constraint Compliance
 
 ## D1 — Short-Name Ninja
 
-All project-defined identifiers are three characters or fewer.
+All project-defined identifiers were constrained to three characters or fewer.
 
 Examples:
 
@@ -209,36 +282,36 @@ hos
 fil
 ```
 
-This constraint shaped the naming style of the entire codebase.
+This forced concise protocol-oriented naming across the entire codebase.
 
 ---
 
 ## D2 — Detailed Creator (300 LOC)
 
-The implementation was intentionally engineered to fit within the strict line budget.
+The implementation was intentionally engineered to remain under the strict line budget.
 
 This forced:
 
-- compact protocol design
-- minimal abstractions
-- high code density
-- focused functionality
+* Minimal abstractions
+* Compact protocol design
+* Focused functionality
+* High architectural density
 
-Every feature had to justify its existence.
+Every line had to justify its existence.
 
 ---
 
 ## D3 — System Utilities
 
-GhostByte operates as a binary systems utility.
+GhostByte operates as a low-level binary systems utility.
 
-Capabilities:
+Capabilities include:
 
-- binary augmentation
-- payload reconstruction
-- integrity verification
-- binary visualization
-- protocol inspection
+* Binary augmentation
+* Payload reconstruction
+* Integrity verification
+* Protocol inspection
+* Metadata visualization
 
 ---
 
@@ -246,60 +319,55 @@ Capabilities:
 
 Rust provided:
 
-- ownership-safe file handling
-- deterministic byte manipulation
-- explicit buffer management
-- structured binary parsing
+* Ownership-safe file handling
+* Deterministic byte manipulation
+* Explicit buffer management
+* Structured binary parsing
 
-The resulting implementation remains compact and predictable.
+The resulting implementation remains compact, predictable, and safe.
 
 ---
 
-# Bonus Challenge: Cross-Constraint Combo (+5)
+# 🏆 Bonus Challenge #1 — Cross-Constraint Combo (+5)
 
-GhostByte's architecture emerged directly from the collision between:
+The most interesting design emerged from the collision between:
 
 ```text
 Short-Name Ninja
 +
-300 Line Budget
+300 LOC Budget
 ```
 
 The naming constraint compressed the vocabulary.
 
 The line-budget constraint compressed the architecture.
 
-Together they forced a protocol-oriented design where:
+Together they produced a protocol-oriented utility where:
 
-- structures became compact
-- APIs became minimal
-- parsing became deterministic
-- visualization remained lightweight
-
-Without these constraints GhostByte would likely have evolved into a larger and more abstract system.
-
-Instead, the constraints produced something unexpected:
-
-```text
-A complete binary protocol utility
-inside a highly compressed architecture.
-```
+* APIs became minimal
+* Parsing became deterministic
+* Structures became compact
+* Visualization remained lightweight
 
 The constraints did not merely restrict implementation.
 
-They actively created the final design.
+They actively created the final architecture.
+
+Without those constraints GhostByte would likely have evolved into a larger and more abstract system.
+
+Instead, they produced a complete binary engineering utility inside a highly compressed implementation footprint.
 
 ---
 
-# Bonus Challenge: Rosetta Stone (+5)
+# 🏆 Bonus Challenge #2 — Rosetta Stone (+5)
 
 GhostByte is intentionally protocol-oriented.
 
 The binary format is language-independent.
 
-To demonstrate protocol portability, the same GhostByte protocol was implemented in Python.
+To prove this, the protocol was independently reimplemented in Python.
 
-Included Reference:
+Directory:
 
 ```text
 python_reference/
@@ -308,11 +376,11 @@ python_reference/
 
 Both implementations support:
 
-- payload implantation
-- binary inspection
-- payload extraction
-- footer parsing
-- checksum verification
+* Implant
+* Inspect
+* Extract
+* Footer Parsing
+* Checksum Verification
 
 This demonstrates that GhostByte is not merely a Rust application.
 
@@ -320,13 +388,13 @@ It is a portable binary protocol that can be implemented across ecosystems.
 
 ---
 
-# Bonus Challenge: Language Love Letter (+3)
+# 🏆 Bonus Challenge #3 — Language Love Letter (+3)
 
 One surprising lesson from Rust was how naturally ownership encourages append-only workflows.
 
-Initially, it seemed easier to mutate files directly.
+Initially, modifying host files directly seemed simpler.
 
-However, Rust's ownership model pushed the design toward explicit data flow:
+However, Rust's ownership model encouraged explicit data flow:
 
 ```text
 Host
@@ -338,15 +406,15 @@ Footer
 Magic
 ```
 
-Rather than modifying existing bytes, GhostByte evolved into an append-only architecture.
+Rather than mutating existing bytes, GhostByte evolved into a cleaner append-only architecture.
 
-This ended up producing a cleaner protocol, simpler parsing logic, and safer file handling.
+The language constraints directly improved the final design.
 
-The final design was better because of the language constraints rather than despite them.
+The project became safer, easier to reason about, and more deterministic because of Rust's ownership philosophy.
 
 ---
 
-# Project Structure
+# 📁 Project Structure
 
 ```text
 ghostbyte/
@@ -374,7 +442,7 @@ ghostbyte/
 
 ---
 
-# Build
+# 🔨 Build
 
 ```bash
 cargo build --release
@@ -382,7 +450,7 @@ cargo build --release
 
 ---
 
-# Sample Workflow
+# ▶️ Complete Workflow
 
 ## Implant
 
@@ -402,43 +470,45 @@ cargo run --release -- inspect demo.pdf
 cargo run --release -- extract demo.pdf
 ```
 
----
-
-# Example Session
+## Python Reference
 
 ```bash
-cargo build --release
+cd python_reference
 
-cargo run --release -- implant secret.txt demo.pdf
+python ghostbyte.py implant ../samples/secret.txt ../samples/demo.pdf
 
-cargo run --release -- inspect demo.pdf
+python ghostbyte.py inspect ../samples/demo.pdf
 
-cargo run --release -- extract demo.pdf
+python ghostbyte.py extract ../samples/demo.pdf
 ```
 
 ---
 
-# Why GhostByte?
+# 🎯 Key Takeaways
 
 GhostByte demonstrates how:
 
-- binary engineering
-- protocol design
-- integrity verification
-- terminal visualization
-- constraint-driven development
+* Binary engineering
+* Protocol design
+* Integrity verification
+* Terminal visualization
+* Cross-language portability
+* Constraint-driven development
 
-can coexist inside a highly constrained Rust codebase.
+can coexist inside a compact systems utility.
 
 The project intentionally favors:
 
-- transparency
-- determinism
-- reversibility
-- portability
-- simplicity
+* Transparency
+* Determinism
+* Reversibility
+* Portability
+* Simplicity
 
-while remaining compact enough to satisfy aggressive implementation constraints.
+while remaining small enough to satisfy aggressive implementation constraints.
 
 GhostByte ultimately evolved into a Binary Intelligence Terminal rather than a traditional command-line utility, proving that constraints can generate architecture rather than merely limit it.
-````
+
+---
+
+**Built with Rust 🦀 by Team Krishnap for Hackathon Raptors.**
