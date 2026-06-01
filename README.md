@@ -38,6 +38,7 @@ hos
 fil
 
 **Bonus Challenges Completed:** ✅ Rosetta Stone (+5) | ✅ Cross-Constraint Combo (+5) | ✅ Language Love Letter (+3)
+```
 
 ---
 
